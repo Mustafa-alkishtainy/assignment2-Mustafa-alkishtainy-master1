@@ -39,7 +39,7 @@ public class SolutionAssign2 {
         }while(!Pattern.matches("[a-zA-Z]+", student[i].FirstName));
         do{
             System.out.println("LastName:");
-                student[i].FirstName =input.next();
+                student[i].LastName =input.next();
             }while(!Pattern.matches("[a-zA-Z]+", student[i].LastName));
         do {
             System.out.println("Enter PSID: ");
@@ -47,12 +47,19 @@ public class SolutionAssign2 {
         }while (!student[i].PSID.matches("^[0-9]+$")&&student[i].PSID.length()!=10);
         System.out.println("Enter grade 1: ");
         student[i].grade1 = input.nextInt();
-        
+        student[i].gradepoint1 = getGradePoint(student[i].grade1);
+            System.out.println("Enter grade 2: ");
+            student[i].grade1 = input.nextInt();
+            student[i].gradepoint2 = getGradePoint(student[i].grade2);
+            System.out.println("Enter grade 3: ");
+            student[i].grade1 = input.nextInt();
+            student[i].gradepoint3 = getGradePoint(student[i].grade3);
+            student[i].GPA=(student[i].gradepoint1 *3+ student[i].gradepoint2*3 +student[i].gradepoint3)/9;
         }
         try{
             Writer w =new FileWriter(filename);
             for (int i =0; i <count; i++) {
-           w.write((student[i].FirstName+ " "+"\n"));
+           w.write((student[i].FirstName+ " "+student[i].LastName+" " + student[i].PSID+ " "+ "\n"));
 
             }
             w.close();

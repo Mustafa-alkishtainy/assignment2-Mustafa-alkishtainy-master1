@@ -103,9 +103,13 @@ public class SolutionAssign2 {
         {
             gradePoint=1.33;
         }
-        else if (x>=60 && x <=62)
+        else if (x>=63 && x<=66)
         {
             gradePoint=1.00;
+        }
+        else if (x>=60 && x <=62)
+        {
+            gradePoint=0.67;
         }
         else {
             gradePoint=0.0;

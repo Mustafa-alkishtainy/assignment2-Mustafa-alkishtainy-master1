@@ -49,18 +49,17 @@ public class SolutionAssign2 {
         student[i].grade1 = input.nextInt();
         student[i].gradepoint1 = getGradePoint(student[i].grade1);
             System.out.println("Enter grade 2: ");
-            student[i].grade1 = input.nextInt();
+            student[i].grade2 = input.nextInt();
             student[i].gradepoint2 = getGradePoint(student[i].grade2);
             System.out.println("Enter grade 3: ");
-            student[i].grade1 = input.nextInt();
+            student[i].grade3 = input.nextInt();
             student[i].gradepoint3 = getGradePoint(student[i].grade3);
-            student[i].GPA=(student[i].gradepoint1 *3+ student[i].gradepoint2*3 +student[i].gradepoint3)/9;
+            student[i].GPA=(student[i].gradepoint1*3 + student[i].gradepoint2*3 +student[i].gradepoint3*3)/9;
         }
         try{
             Writer w =new FileWriter(filename);
             for (int i =0; i <count; i++) {
-           w.write((student[i].FirstName+ " "+student[i].LastName+" " + student[i].PSID+ " "+ "\n"));
-
+           w.write((student[i].FirstName+ " "+student[i].LastName+" " + student[i].PSID+ " "+ student[i].grade1 +" "+ student[i].grade2 +" "+ student[i].grade3 +" "+student[i].gradepoint1+" "+ student[i].gradepoint2 +" "+ student[i].gradepoint3 + " "+ student[i].GPA +"\n"));
             }
             w.close();
         }catch (IOException e)
@@ -79,6 +78,10 @@ public class SolutionAssign2 {
         else if (x>=87 && x <=89)
         {
             gradePoint =3.33;
+        }
+        else if(x>=83 && x<=86)
+        {
+            gradePoint=3.00;
         }
         else if(x >=80 && x <=82)
         {
@@ -104,8 +107,7 @@ public class SolutionAssign2 {
         {
             gradePoint=1.00;
         }
-        else if (gradePoint < 60)
-        {
+        else {
             gradePoint=0.0;
         }
         return gradePoint;
